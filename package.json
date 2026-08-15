@@ -1,0 +1,67 @@
+{
+	"name": "jean-course-platform",
+	"description": "Premium course landing and platform foundation for Jean.",
+	"cloudflare": {
+		"label": "React Router Framework Starter",
+		"products": [
+			"Workers"
+		],
+		"categories": [
+			"storage"
+		],
+		"preview_icon_url": "https://imagedelivery.net/wSMYJvS3Xw-n339CbDyDIA/36a99c4a-8919-4e6e-ac9e-e55974407200/public",
+		"preview_image_url": "https://imagedelivery.net/wSMYJvS3Xw-n339CbDyDIA/65455e96-7992-425f-44e4-30f3e7d7f900/preview",
+		"publish": true
+	},
+	"dependencies": {
+		"gsap": "3.13.0",
+		"isbot": "5.1.32",
+		"react": "19.2.1",
+		"react-dom": "19.2.1",
+		"react-router": "7.18.2",
+		"three": "0.180.0"
+	},
+	"devDependencies": {
+		"@axe-core/playwright": "4.13.0",
+		"@cloudflare/vite-plugin": "1.52.1",
+		"@cloudflare/workers-types": "5.20260815.1",
+		"@eslint/js": "9.39.1",
+		"@playwright/test": "1.62.1",
+		"@react-router/dev": "7.18.2",
+		"@tailwindcss/vite": "4.1.17",
+		"@types/node": "24.10.1",
+		"@types/react": "19.2.7",
+		"@types/react-dom": "19.2.3",
+		"@types/three": "0.180.0",
+		"@vitest/coverage-v8": "4.1.10",
+		"eslint": "9.39.1",
+		"eslint-plugin-react-hooks": "7.0.1",
+		"eslint-plugin-react-refresh": "0.4.24",
+		"globals": "16.5.0",
+		"prettier": "3.7.4",
+		"tailwindcss": "4.1.17",
+		"typescript": "5.9.3",
+		"typescript-eslint": "8.48.1",
+		"vite": "7.3.6",
+		"vite-tsconfig-paths": "5.1.4",
+		"vitest": "4.1.10",
+		"wrangler": "4.123.0"
+	},
+	"private": true,
+	"scripts": {
+		"build": "react-router build",
+		"cf-typegen": "wrangler types && react-router typegen",
+		"check": "npm run format:check && npm run lint && npm run typecheck && npm run test && npm run build && wrangler deploy --dry-run",
+		"deploy": "wrangler deploy",
+		"dev": "react-router dev",
+		"format": "prettier --write .",
+		"format:check": "prettier --check .",
+		"lint": "eslint .",
+		"preview": "npm run build && vite preview",
+		"test": "vitest run",
+		"test:e2e": "playwright test",
+		"typegen": "react-router typegen",
+		"typecheck": "npm run typegen && tsc -b"
+	},
+	"type": "module"
+}

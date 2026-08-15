@@ -1,0 +1,57 @@
+name: Deploy preview to GitHub Pages
+
+# Pages sirve una versión estática prerenderizada de la landing, útil para
+# revisar diseño y contenido en línea. El destino de producción sigue siendo
+# el Worker de Cloudflare (`npm run deploy`), que sí ejecuta SSR.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Build static site
+        # La barra final importa: Vite la usa tal cual para resolver assets.
+        env:
+          PAGES_BASE: /pagina-de-curso-jeanrox/
+        run: npm run build
+      - name: Flatten prerendered HTML
+        # El prerender escribe el documento bajo el basename, pero Pages ya
+        # sirve el artefacto desde esa subruta: sin esto quedaría duplicada.
+        run: |
+          mv build/client/pagina-de-curso-jeanrox/index.html build/client/index.html
+          rmdir build/client/pagina-de-curso-jeanrox
+          cp build/client/index.html build/client/404.html
+      - name: Disable Jekyll processing
+        run: touch build/client/.nojekyll
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/client
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

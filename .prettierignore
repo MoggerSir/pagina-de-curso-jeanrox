@@ -1,0 +1,7 @@
+build
+node_modules
+worker-configuration.d.ts
+package-lock.json
+playwright-report
+test-results
+docs genral
