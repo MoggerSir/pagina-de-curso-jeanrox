@@ -8,6 +8,7 @@ import {
 } from "react-router";
 
 import type { Route } from "./+types/root";
+import { IntroOverlay } from "./features/intro/intro-overlay";
 import "./app.css";
 
 export const links: Route.LinksFunction = () => [
@@ -30,9 +31,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
 				<Links />
 			</head>
 			<body>
+				{/* Sin JavaScript la intro no puede retirarse sola, así que ni se pinta. */}
+				<noscript>
+					<style>{".intro{display:none!important}"}</style>
+				</noscript>
 				<a className="skip-link" href="#contenido">
 					Saltar al contenido
 				</a>
+				<IntroOverlay />
 				{children}
 				<ScrollRestoration />
 				<Scripts />

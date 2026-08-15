@@ -8,6 +8,7 @@ const CONTENT_SECURITY_POLICY = [
 	"style-src 'self' https://fonts.googleapis.com",
 	"font-src 'self' https://fonts.gstatic.com",
 	"img-src 'self' data: blob:",
+	"media-src 'self'",
 	"connect-src 'self'",
 	"worker-src 'self' blob:",
 ].join("; ");
