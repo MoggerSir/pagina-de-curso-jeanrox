@@ -1,3 +1,12 @@
+// Marcadores de posición hasta que Jean entregue las fotos autorizadas de sus
+// seguidores. Sustituir los archivos de public/assets/resultados/ y el alt.
+export const transformations = [
+	{ id: "01", meses: "3 meses", foco: "Definición facial" },
+	{ id: "02", meses: "5 meses", foco: "Composición corporal" },
+	{ id: "03", meses: "4 meses", foco: "Piel y descanso" },
+	{ id: "04", meses: "7 meses", foco: "Estilo y postura" },
+] as const;
+
 export const heroFeatures = [
 	{
 		icon: "target",

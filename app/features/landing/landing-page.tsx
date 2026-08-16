@@ -1,6 +1,7 @@
 import { ParticleCanvas } from "../../three/particle-canvas";
 import { useRevealMotion } from "../../hooks/use-reveal-motion";
 import { communityLinks, faqs, heroFeatures, stages } from "./content";
+import { TransformationRail } from "./transformation-rail";
 import {
 	DiscordIcon,
 	InstagramIcon,
@@ -143,31 +144,22 @@ export function LandingPage() {
 					<ParticleCanvas />
 				</div>
 				<HeroInstruments />
-				<a className="hero__scroll" href="#metodo">
+				<a className="hero__scroll" href="#resultados">
 					Desliza para explorar <span aria-hidden="true" />
 				</a>
 			</section>
 
-			<section id="metodo" className="statement section-grid" data-reveal>
-				<p className="eyebrow">01 / EL PROBLEMA</p>
-				<p className="statement__text">
-					Información hay de sobra. Lo difícil es convertirla en una secuencia que puedas entender,
-					ejecutar y sostener.
-				</p>
-				<div className="signal-meter" aria-label="De información dispersa a método definido">
-					<span>RUIDO</span>
-					<div>
-						<i />
-						<i />
-						<i />
-						<i />
-						<i />
-						<i />
-						<i />
-						<i />
-					</div>
-					<span>MÉTODO</span>
+			<section id="resultados" className="results" data-reveal>
+				<div className="results__head">
+					<p className="eyebrow">01 / ANTES · DESPUÉS</p>
+					<h2>
+						Cambios físicos
+						<br />
+						generados por la guía.
+					</h2>
+					<p>Transformaciones reales de seguidores que aplicaron el método.</p>
 				</div>
+				<TransformationRail />
 			</section>
 
 			<section id="programa" className="method section-shell" data-reveal>
