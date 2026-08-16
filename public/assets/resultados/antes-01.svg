@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="600" height="800">
+<defs>
+<linearGradient id="bg3" x1="0" y1="0" x2="0.5" y2="1">
+<stop offset="0" stop-color="#0a0b0c"/><stop offset="1" stop-color="#050505"/>
+</linearGradient>
+<radialGradient id="luz3" cx="0.2" cy="0.32" r="0.72">
+<stop offset="0" stop-color="#6f757a"/>
+<stop offset="0.55" stop-color="#6f757a" stop-opacity="0.55"/>
+<stop offset="1" stop-color="#191d20"/>
+</radialGradient>
+<radialGradient id="vig3" cx="0.5" cy="0.4" r="0.75">
+<stop offset="0.4" stop-color="#000" stop-opacity="0"/>
+<stop offset="1" stop-color="#000" stop-opacity="0.8"/>
+</radialGradient>
+<filter id="gr3">
+<feTurbulence type="fractalNoise" baseFrequency="0.95" numOctaves="4" seed="3"/>
+<feColorMatrix type="saturate" values="0"/>
+</filter>
+<filter id="sf3"><feGaussianBlur stdDeviation="9"/></filter>
+</defs>
+<rect width="600" height="800" fill="url(#bg3)"/>
+<g filter="url(#sf3)">
+<ellipse cx="318" cy="337" rx="155" ry="219" fill="url(#luz3)"/>
+<path d="M53 800 C68 586 178 526 318 526 C458 526 568 586 583 800 Z" fill="url(#luz3)"/>
+</g>
+<ellipse cx="318" cy="472.78" rx="124" ry="65.7" fill="#000" opacity="0.35" filter="url(#sf3)"/>
+<rect width="600" height="800" filter="url(#gr3)" opacity="0.27" style="mix-blend-mode:overlay"/>
+<rect width="600" height="800" fill="url(#vig3)"/>
+</svg>

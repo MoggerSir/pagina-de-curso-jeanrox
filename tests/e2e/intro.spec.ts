@@ -22,7 +22,7 @@ test("la intro se retira sola y libera el scroll", async ({ page }) => {
 	await expect(page.locator(".intro")).toHaveCount(0, { timeout: 20_000 });
 	// Si la cortina se dejara el scroll bloqueado, la rueda no movería nada.
 	await page.mouse.wheel(0, 1_200);
-	await expect(page.locator("#metodo")).toBeInViewport({ timeout: 5_000 });
+	await expect(page.locator("#resultados")).toBeInViewport({ timeout: 5_000 });
 });
 
 test("con movimiento reducido no se muestra la intro", async ({ page }) => {
