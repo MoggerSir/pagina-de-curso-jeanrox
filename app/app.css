@@ -1353,9 +1353,20 @@ a.social-dot:hover {
 	pointer-events: none;
 }
 .intro__video {
-	width: min(92vw, 32rem);
-	max-height: 78vh;
-	object-fit: contain;
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+/* La salida ocurre en dos tiempos sobre el fondo negro de la cortina: primero
+   el vídeo se apaga, después la cortina se desvanece y descubre la landing. */
+.intro[data-phase="leaving"] .intro__video {
+	animation: intro-video-out calc(var(--intro-exit, 2500ms) * 0.72) ease-in both;
+}
+.intro[data-phase="leaving"] .intro__skip {
+	opacity: 0;
+	transition: opacity 0.25s ease;
 }
 .intro__skip {
 	position: absolute;
@@ -1363,8 +1374,9 @@ a.social-dot:hover {
 	min-height: 2.75rem;
 	padding: 0.7rem 1.15rem;
 	border: 1px solid var(--line-bright);
-	background: rgba(5, 5, 5, 0.5);
-	color: var(--muted);
+	/* Se apoya sobre fotogramas claros del vídeo: necesita cuerpo propio. */
+	background: rgba(5, 5, 5, 0.78);
+	color: var(--text);
 	cursor: pointer;
 	font:
 		500 0.62rem "IBM Plex Mono",
@@ -1388,11 +1400,20 @@ a.social-dot:hover {
 	}
 }
 @keyframes intro-out {
-	from {
+	0%,
+	46% {
 		opacity: 1;
 	}
-	to {
+	100% {
 		opacity: 0;
+	}
+}
+@keyframes intro-video-out {
+	from {
+		filter: brightness(1);
+	}
+	to {
+		filter: brightness(0);
 	}
 }
 

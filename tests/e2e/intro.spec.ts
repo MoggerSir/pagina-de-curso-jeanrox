@@ -1,8 +1,7 @@
 import { expect, test } from "@playwright/test";
 
-// El resto de la suite navega con movimiento reducido, donde la cortina no
-// existe; aquí se prueba justo el caso contrario.
-test.use({ reducedMotion: "no-preference" });
+// landing.spec.ts navega con movimiento reducido, donde la cortina no existe.
+// Aquí se deja la preferencia por defecto ("no-preference") para probarla.
 
 test("la intro se puede saltar de inmediato con un clic", async ({ page }) => {
 	await page.goto("/");
@@ -21,10 +20,9 @@ test("la intro se retira sola y libera el scroll", async ({ page }) => {
 	await expect(page.locator(".intro")).toBeVisible();
 	// Entrada + vídeo + salida de 2,5 s; el salvavidas del componente actúa a los 11 s.
 	await expect(page.locator(".intro")).toHaveCount(0, { timeout: 20_000 });
-	await page.evaluate(() => {
-		window.scrollTo(0, 500);
-	});
-	await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(100);
+	// Si la cortina se dejara el scroll bloqueado, la rueda no movería nada.
+	await page.mouse.wheel(0, 1_200);
+	await expect(page.locator("#metodo")).toBeInViewport({ timeout: 5_000 });
 });
 
 test("con movimiento reducido no se muestra la intro", async ({ page }) => {
