@@ -40,7 +40,7 @@ export function SiteHeader() {
 				))}
 				<a
 					className="nav__cta"
-					href="#acceso"
+					href="/acceso"
 					onClick={() => {
 						setOpen(false);
 					}}

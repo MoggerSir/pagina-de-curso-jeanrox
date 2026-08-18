@@ -8,7 +8,6 @@ import {
 } from "react-router";
 
 import type { Route } from "./+types/root";
-import { IntroOverlay } from "./features/intro/intro-overlay";
 import "./app.css";
 
 export const links: Route.LinksFunction = () => [
@@ -38,7 +37,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
 				<a className="skip-link" href="#contenido">
 					Saltar al contenido
 				</a>
-				<IntroOverlay />
 				{children}
 				<ScrollRestoration />
 				<Scripts />

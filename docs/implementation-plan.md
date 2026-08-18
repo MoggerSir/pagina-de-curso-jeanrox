@@ -20,4 +20,24 @@
 - [ ] F1.15 Perfilar WebGL en dispositivos físicos y ajustar presupuestos.
 - [ ] F1.16 Aprobar regresión visual después del contenido y branding definitivos.
 
-No se incluyen todavía autenticación, pagos, D1, curso privado ni panel administrativo; pertenecen a iteraciones posteriores y no aportan valor inmediato a esta landing.
+## Fase 2 — Guía premium
+
+- [x] F2.1 Extraer el texto del PDF y estructurarlo en capítulos y bloques.
+- [x] F2.2 Esquema en D1: contenido, usuarios, compras, sesiones y lecturas.
+- [x] F2.3 Lector privado con índice y navegación por capítulos.
+- [x] F2.4 Protección: sesión obligatoria, marca de agua, sin caché, límite de ritmo.
+- [x] F2.5 Acceso propio por confirmación de correo (Google descartado por su
+      proceso de verificación).
+- [x] F2.5a Esquema normalizado a 3FN y catálogo de productos.
+- [x] F2.5b Herramienta para conceder y revocar accesos a mano.
+- [ ] F2.5c Contratar el proveedor de correo y poner `RESEND_API_KEY` y
+      `MAIL_FROM`: sin eso nadie recibe el enlace de acceso en producción.
+- [ ] F2.6 Webhook de pago que escriba la fila de `entitlements` tras verificar el cobro.
+- [ ] F2.7 Crear la base D1 real y volcar el contenido con `db:seed:remote`.
+- [ ] F2.8 Panel de Jean para revocar accesos y revisar el registro de lecturas.
+- [ ] F2.8a Cargar la guía gratuita cuando Jean entregue su archivo: el producto
+      ya existe en el catálogo, solo le faltan capítulos.
+- [ ] F2.9 Repasar el texto importado: el PDF trae saltos de línea de diseño que
+      a veces unen un subtítulo con el párrafo siguiente.
+
+No se incluyen todavía el panel administrativo ni la mensajería; pertenecen a iteraciones posteriores.

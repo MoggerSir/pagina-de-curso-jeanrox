@@ -213,3 +213,7 @@ dist
 
 ### Documentos privados del cliente (nunca al repositorio) ###
 docs genral/
+
+### Contenido premium del curso (nunca al repositorio) ###
+content/
+*.pdf

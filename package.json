@@ -51,6 +51,10 @@
 	"scripts": {
 		"build": "react-router build",
 		"cf-typegen": "wrangler types && react-router typegen",
+		"db:migrate": "wrangler d1 execute jean-guia --local --file=migrations/0001_esquema.sql",
+		"db:seed": "wrangler d1 execute jean-guia --local --file=content/guia/seed.sql",
+		"db:migrate:remote": "wrangler d1 execute jean-guia --remote --file=migrations/0001_esquema.sql",
+		"db:seed:remote": "wrangler d1 execute jean-guia --remote --file=content/guia/seed.sql",
 		"check": "npm run format:check && npm run lint && npm run typecheck && npm run test && npm run build && wrangler deploy --dry-run",
 		"deploy": "wrangler deploy",
 		"dev": "react-router dev",

@@ -8,5 +8,13 @@
 		"enabled": true,
 		"head_sampling_rate": 0.1
 	},
-	"upload_source_maps": true
+	"upload_source_maps": true,
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "jean-guia",
+			"database_id": "local-hasta-crear-la-real",
+			"migrations_dir": "migrations"
+		}
+	]
 }

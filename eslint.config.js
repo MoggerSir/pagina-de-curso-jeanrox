@@ -12,6 +12,10 @@ export default tseslint.config(
 			".react-router",
 			"worker-configuration.d.ts",
 			"eslint.config.js",
+			// Utilidades de línea de comandos: viven fuera del proyecto de TypeScript,
+			// así que las reglas con información de tipos no pueden analizarlas.
+			"scripts/**/*.mjs",
+			"content",
 		],
 	},
 	js.configs.recommended,
@@ -29,6 +33,12 @@ export default tseslint.config(
 			// React Router route modules intentionally export metadata and loaders beside components.
 			"react-refresh/only-export-components": "off",
 			"@typescript-eslint/consistent-type-definitions": "off",
+			// Loaders y actions cortan la petición lanzando Response o redirect(),
+			// que es la forma prevista por React Router de responder desde ahí.
+			"@typescript-eslint/only-throw-error": [
+				"error",
+				{ allow: [{ from: "lib", name: "Response" }] },
+			],
 		},
 	},
 );

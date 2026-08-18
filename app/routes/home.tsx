@@ -1,6 +1,7 @@
 import { Footer } from "../components/layout/footer";
 import { SiteHeader } from "../components/layout/site-header";
 import { LandingPage } from "../features/landing/landing-page";
+import { IntroOverlay } from "../features/intro/intro-overlay";
 
 export function meta() {
 	return [
@@ -23,6 +24,8 @@ export function meta() {
 export default function Home() {
 	return (
 		<>
+			{/* Solo en la portada: el lector privado no debe abrirse con un vídeo. */}
+			<IntroOverlay />
 			<SiteHeader />
 			<LandingPage />
 			<Footer />

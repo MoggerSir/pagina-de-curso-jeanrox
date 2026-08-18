@@ -1708,3 +1708,410 @@ a.social-dot:hover {
 		transition-duration: 0.01ms !important;
 	}
 }
+
+/* ── Guía premium ─────────────────────────────────────────────────────────
+   Zona privada: composición sobria y de lectura larga, deliberadamente lejos
+   del ruido de la landing. */
+.gate {
+	width: min(100%, 34rem);
+	margin-inline: auto;
+	padding: 9rem var(--gutter) var(--section-space);
+}
+.gate h1 {
+	margin: 1rem 0 2rem;
+	font-size: clamp(2.2rem, 5vw, 3.4rem);
+	line-height: 1.02;
+	letter-spacing: -0.04em;
+	text-transform: uppercase;
+}
+.gate__aviso {
+	margin-bottom: 1.5rem;
+	padding: 1rem 1.1rem;
+	border-left: 2px solid var(--accent);
+	background: var(--panel);
+	color: var(--muted);
+	font-size: 0.92rem;
+}
+.gate__panel {
+	padding: 1.5rem;
+	border: 1px solid var(--line);
+	background: var(--panel);
+}
+.gate__panel p {
+	color: var(--muted);
+	font-size: 0.92rem;
+	line-height: 1.6;
+}
+.gate__estado {
+	margin: 0 0 0.9rem;
+	color: var(--muted-dim);
+	font:
+		500 0.62rem "IBM Plex Mono",
+		monospace;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+}
+.gate__dev {
+	display: grid;
+	gap: 0.7rem;
+	margin-top: 2.5rem;
+	padding: 1.2rem;
+	border: 1px dashed var(--line-bright);
+}
+.gate__dev label {
+	color: var(--muted);
+	font-size: 0.82rem;
+}
+.gate__dev input {
+	min-height: 3rem;
+	padding: 0 0.9rem;
+	border: 1px solid var(--line-bright);
+	background: var(--ink);
+	color: var(--text);
+	font: inherit;
+}
+.gate__error {
+	margin: 0;
+	color: var(--accent);
+	font-size: 0.85rem;
+}
+
+.reader {
+	position: relative;
+	width: min(100%, 46rem);
+	margin-inline: auto;
+	padding: 7.5rem var(--gutter) var(--section-space);
+}
+.reader__head h1 {
+	margin: 0.8rem 0 1rem;
+	font-size: clamp(2.2rem, 5vw, 3.6rem);
+	line-height: 1;
+	letter-spacing: -0.04em;
+	text-transform: uppercase;
+}
+.reader__lead {
+	margin: 0;
+	color: var(--muted);
+	font-size: 0.95rem;
+}
+.chapter-list {
+	margin: 3rem 0 0;
+	padding: 0;
+	border-top: 1px solid var(--line);
+	list-style: none;
+}
+.chapter-list a {
+	display: grid;
+	align-items: baseline;
+	gap: 1rem;
+	padding: 1.15rem 0.4rem;
+	border-bottom: 1px solid var(--line);
+	grid-template-columns: 2.4rem 1fr auto;
+	transition: background 0.15s ease;
+}
+.chapter-list a:hover {
+	background: var(--panel);
+}
+.chapter-list__index {
+	color: var(--muted-dim);
+	font:
+		0.72rem "IBM Plex Mono",
+		monospace;
+}
+.chapter-list__title {
+	font-size: 1.05rem;
+}
+.chapter-list__meta {
+	color: var(--muted-dim);
+	font:
+		0.62rem "IBM Plex Mono",
+		monospace;
+	text-transform: uppercase;
+}
+.reader__exit {
+	margin-top: 3rem;
+}
+.reader__crumbs {
+	display: flex;
+	justify-content: space-between;
+	padding-bottom: 1rem;
+	border-bottom: 1px solid var(--line);
+	color: var(--muted);
+	font:
+		500 0.66rem "IBM Plex Mono",
+		monospace;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+}
+
+/* El texto comprado: sin selección ni arrastre, y fuera de la impresión. */
+.prose {
+	position: relative;
+	z-index: 1;
+	padding-block: 2.5rem;
+	-webkit-user-select: none;
+	user-select: none;
+	-webkit-touch-callout: none;
+}
+.prose h1 {
+	margin: 0 0 2rem;
+	font-size: clamp(1.9rem, 4vw, 3rem);
+	line-height: 1.04;
+	letter-spacing: -0.035em;
+	text-transform: uppercase;
+}
+.prose h2 {
+	margin: 2.6rem 0 1rem;
+	font-size: clamp(1.15rem, 2vw, 1.5rem);
+	line-height: 1.2;
+	letter-spacing: -0.02em;
+}
+.prose p {
+	margin: 0 0 1.15rem;
+	color: #ccd0d2;
+	font-size: 1.02rem;
+	line-height: 1.75;
+}
+.prose__item {
+	margin-bottom: 0.5rem;
+	padding-left: 1.4rem;
+	border-left: 1px solid var(--line-bright);
+	color: var(--muted);
+}
+.reader__pager {
+	display: flex;
+	justify-content: space-between;
+	gap: 1rem;
+	margin-top: 3rem;
+	padding-top: 2rem;
+	border-top: 1px solid var(--line);
+}
+
+/* Marca de agua: cubre el documento entero en dos capas cruzadas para que
+   cualquier recorte, completo o parcial, se lleve el correo dentro. */
+.watermark {
+	position: fixed;
+	z-index: 2;
+	inset: -20%;
+	overflow: hidden;
+	pointer-events: none;
+	user-select: none;
+}
+.watermark__capa {
+	position: absolute;
+	display: flex;
+	width: 140%;
+	height: 140%;
+	flex-wrap: wrap;
+	align-content: flex-start;
+	justify-content: space-between;
+	gap: 2.6rem 3rem;
+	inset: 0;
+}
+.watermark__capa--a {
+	opacity: 0.115;
+	transform: rotate(-28deg);
+}
+.watermark__capa--b {
+	opacity: 0.075;
+	transform: rotate(22deg) translateY(4%);
+}
+.watermark span {
+	font:
+		500 0.72rem "IBM Plex Mono",
+		monospace;
+	letter-spacing: 0.04em;
+	white-space: nowrap;
+}
+
+/* Los productos que puede abrir esta cuenta. */
+.product-list {
+	margin: 3rem 0 0;
+	padding: 0;
+	list-style: none;
+}
+.product-list li {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1.5rem;
+	margin-bottom: 0.9rem;
+	padding: 1.4rem 1.3rem;
+	border: 1px solid var(--line);
+	background: var(--panel);
+}
+.product-list li[data-abierto="false"] {
+	opacity: 0.62;
+}
+.product-list h2 {
+	margin: 0 0 0.4rem;
+	font-size: 1.15rem;
+	letter-spacing: -0.01em;
+}
+.product-list p {
+	margin: 0;
+	color: var(--muted-dim);
+	font:
+		0.62rem "IBM Plex Mono",
+		monospace;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+.product-list__estado {
+	flex-shrink: 0;
+	color: var(--muted-dim);
+	font:
+		0.62rem "IBM Plex Mono",
+		monospace;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+}
+
+/* Formulario de acceso por correo. */
+.gate__intro {
+	margin: 0 0 2rem;
+	color: var(--muted);
+	font-size: 0.98rem;
+	line-height: 1.6;
+}
+.gate__form {
+	display: grid;
+	gap: 0.8rem;
+	padding: 1.6rem;
+	border: 1px solid var(--line);
+	background: var(--panel);
+}
+.gate__form label {
+	color: var(--muted);
+	font:
+		500 0.62rem "IBM Plex Mono",
+		monospace;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+}
+.gate__form input {
+	min-height: 3.25rem;
+	padding: 0 1rem;
+	border: 1px solid var(--line-bright);
+	background: var(--ink);
+	color: var(--text);
+	font: inherit;
+}
+.gate__form input:focus-visible {
+	border-color: var(--text);
+}
+.gate__nota {
+	margin: 1.5rem 0 0;
+	color: var(--muted-dim);
+	font-size: 0.82rem;
+	line-height: 1.6;
+}
+
+@media print {
+	/* Imprimir a PDF es la vía de copia más cómoda: aquí no sale nada. */
+	.reader,
+	.prose,
+	.chapter-list {
+		display: none !important;
+	}
+	body::after {
+		content: "Este contenido no se puede imprimir.";
+		font:
+			1rem "IBM Plex Mono",
+			monospace;
+	}
+}
+
+.gate__dev-link {
+	margin: 1.2rem 0 0;
+	padding-top: 1rem;
+	border-top: 1px dashed var(--line-bright);
+	font-size: 0.82rem;
+}
+.gate__dev-link span {
+	color: var(--muted-dim);
+	font:
+		500 0.6rem "IBM Plex Mono",
+		monospace;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+}
+.gate__dev-link a {
+	color: var(--accent);
+	text-decoration: underline;
+}
+
+/* Campo de partículas del lector: ocupa la ventana completa por detrás del
+   texto. Va bajo el contenido y sobre el fondo, y nunca recibe el puntero. */
+.reader-field {
+	position: fixed;
+	z-index: 0;
+	inset: 0;
+	pointer-events: none;
+}
+.reader-field canvas {
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	animation: campo-entra 1.4s 0.25s ease forwards;
+}
+@keyframes campo-entra {
+	to {
+		opacity: 1;
+	}
+}
+/* El texto se apoya sobre el campo, nunca al revés. */
+.reader__head,
+.chapter-list,
+.product-list,
+.reader__crumbs,
+.reader__pager,
+.reader__exit,
+.prose {
+	position: relative;
+	z-index: 3;
+}
+/* Colchón de legibilidad justo bajo la columna de lectura. */
+.reader--chapter .prose::before {
+	position: absolute;
+	z-index: -1;
+	inset: -2rem -2.5rem;
+	background: radial-gradient(ellipse at 50% 40%, rgba(5, 5, 5, 0.82) 30%, transparent 72%);
+	content: "";
+	pointer-events: none;
+}
+@media (prefers-reduced-motion: reduce) {
+	.reader-field {
+		display: none;
+	}
+}
+
+/* Firma dentro del propio texto: discreta al leer, pero presente en cualquier
+   recorte o copia del contenido. */
+.prose__marca {
+	margin: 2rem 0;
+	color: var(--muted-dim);
+	font:
+		0.68rem "IBM Plex Mono",
+		monospace;
+	letter-spacing: 0.04em;
+	opacity: 0.75;
+	text-align: center;
+}
+.copia-pie {
+	position: relative;
+	z-index: 3;
+	margin: 3.5rem 0 0;
+	padding-top: 1.2rem;
+	border-top: 1px solid var(--line);
+	color: var(--muted);
+	font:
+		0.7rem/1.6 "IBM Plex Mono",
+		monospace;
+	letter-spacing: 0.05em;
+	text-align: center;
+}
+.copia-pie strong {
+	color: var(--text);
+	font-weight: 500;
+}
